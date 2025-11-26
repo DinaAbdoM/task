@@ -11,13 +11,13 @@ import 'package:task/core/models/sub_category_model.dart';
 import 'package:task/core/theming/app_text_styles.dart';
 import 'package:task/core/theming/colors.dart';
 import 'package:task/core/utils/enums.dart';
-import 'package:task/features/presentation/companies/companies_cubit.dart';
-import 'package:task/features/presentation/filter/filter_cubit.dart';
-import 'package:task/features/presentation/filter/filter_state.dart';
-import 'package:task/features/screens/widgets/filter_widgets/city_dropdown.dart';
-import 'package:task/features/screens/widgets/filter_widgets/filter_chips.dart';
-import 'package:task/features/screens/widgets/filter_widgets/filter_header.dart';
-import 'package:task/features/screens/widgets/shimmer_placeholders.dart';
+import 'package:task/features/presentation/cubits/companies/companies_cubit.dart';
+import 'package:task/features/presentation/cubits/filter/filter_cubit.dart';
+import 'package:task/features/presentation/cubits/filter/filter_state.dart';
+import 'package:task/features/presentation/screens/widgets/filter_widgets/city_dropdown.dart';
+import 'package:task/features/presentation/screens/widgets/filter_widgets/filter_chips.dart';
+import 'package:task/features/presentation/screens/widgets/filter_widgets/filter_header.dart';
+import 'package:task/features/presentation/screens/widgets/shimmer_placeholders.dart';
 
 class FilterBottomSheet extends StatefulWidget {
   const FilterBottomSheet({super.key});

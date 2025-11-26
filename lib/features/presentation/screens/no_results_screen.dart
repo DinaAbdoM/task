@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
 import 'package:task/core/theming/constants.dart';
-import 'package:task/features/screens/widgets/search_app_bar.dart';
+import 'package:task/features/presentation/screens/widgets/search_app_bar.dart';
 
 class NoResultsScreen extends StatelessWidget {
   final TextEditingController searchController;

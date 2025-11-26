@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task/core/models/sub_category_model.dart';
-import 'package:task/features/presentation/filter/filter_state.dart';
+import 'package:task/features/presentation/cubits/filter/filter_state.dart';
 import 'package:task/features/domain/repositories/filter_repository.dart';
 
 class FilterCubit extends Cubit<FilterState> {

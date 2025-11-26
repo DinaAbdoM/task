@@ -4,8 +4,8 @@ import 'package:shimmer/shimmer.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/features/domain/entities/company_entity.dart';
 import 'package:task/core/theming/constants.dart';
-import 'package:task/features/screens/widgets/property_card_widgets/property_card.dart';
-import 'package:task/features/screens/widgets/shimmer_placeholders.dart';
+import 'package:task/features/presentation/screens/widgets/property_card_widgets/property_card.dart';
+import 'package:task/features/presentation/screens/widgets/shimmer_placeholders.dart';
 
 class SearchContent extends StatelessWidget {
   final bool isListView;

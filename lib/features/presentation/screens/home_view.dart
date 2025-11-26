@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:task/features/presentation/companies/companies_cubit.dart';
-import 'package:task/features/presentation/companies/companies_state.dart';
-import 'package:task/features/screens/no_results_screen.dart';
+import 'package:task/features/presentation/cubits/companies/companies_cubit.dart';
+import 'package:task/features/presentation/cubits/companies/companies_state.dart';
+import 'package:task/features/presentation/screens/no_results_screen.dart';
 import 'package:task/core/theming/constants.dart';
-import 'package:task/features/screens/widgets/search_app_bar.dart';
-import 'package:task/features/screens/widgets/search_content.dart';
+import 'package:task/features/presentation/screens/widgets/search_app_bar.dart';
+import 'package:task/features/presentation/screens/widgets/search_content.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

@@ -4,10 +4,10 @@ import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
 import 'package:task/features/domain/entities/company_entity.dart';
 import 'package:task/core/theming/constants.dart';
-import 'package:task/features/screens/widgets/favorite_icon.dart';
-import 'package:task/features/screens/widgets/property_card_widgets/property_image.dart';
+import 'package:task/features/presentation/screens/widgets/favorite_icon.dart';
+import 'package:task/features/presentation/screens/widgets/property_card_widgets/property_image.dart';
 
-import 'package:task/features/screens/widgets/property_card_widgets/rating_and_location_row.dart';
+import 'package:task/features/presentation/screens/widgets/property_card_widgets/rating_and_location_row.dart';
 
 class PropertyCard extends StatefulWidget {
   final CompanyEntity entity;

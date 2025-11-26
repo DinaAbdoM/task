@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task/core/di/dependency_injection.dart';
 import 'package:task/core/routing/routes.dart';
-import 'package:task/features/presentation/companies/companies_cubit.dart';
-import 'package:task/features/screens/home_view.dart';
+import 'package:task/features/presentation/cubits/companies/companies_cubit.dart';
+import 'package:task/features/presentation/screens/home_view.dart';
 
 abstract class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {

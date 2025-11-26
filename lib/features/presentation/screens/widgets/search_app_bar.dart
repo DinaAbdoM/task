@@ -5,10 +5,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:task/core/di/dependency_injection.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
-import 'package:task/features/presentation/companies/companies_cubit.dart';
-import 'package:task/features/presentation/filter/filter_cubit.dart';
+import 'package:task/features/presentation/cubits/companies/companies_cubit.dart';
+import 'package:task/features/presentation/cubits/filter/filter_cubit.dart';
 import 'package:task/core/theming/constants.dart';
-import 'package:task/features/screens/widgets/filter_widgets/filter_bottom_sheet.dart';
+import 'package:task/features/presentation/screens/widgets/filter_widgets/filter_bottom_sheet.dart';
 
 class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
   final TextEditingController searchController;
