@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:task/core/models/sub_category_model.dart';
+import 'package:task/features/data/models/sub_category_model.dart';
 
 part 'subcategories_response.g.dart';
 

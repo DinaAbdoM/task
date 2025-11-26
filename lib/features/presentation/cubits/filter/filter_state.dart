@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:task/core/models/city_model.dart';
-import 'package:task/core/models/sub_category_model.dart';
+import 'package:task/features/data/models/city_model.dart';
+import 'package:task/features/data/models/sub_category_model.dart';
 import 'package:task/features/domain/entities/filter_companies_entity.dart';
 
 part 'filter_state.freezed.dart';

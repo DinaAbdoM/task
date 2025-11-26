@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:task/core/models/company_model.dart';
-import 'package:task/core/models/pagination_model.dart';
+import 'package:task/features/data/models/company_model.dart';
+import 'package:task/features/data/models/pagination_model.dart';
 
 part 'filter_response_model.g.dart';
 

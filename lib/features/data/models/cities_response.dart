@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:task/core/models/city_model.dart';
+import 'package:task/features/data/models/city_model.dart';
 
 part 'cities_response.g.dart';
 

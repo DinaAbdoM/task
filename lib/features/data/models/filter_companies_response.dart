@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:task/core/models/base_response.dart';
-import 'package:task/core/models/filter_response_model.dart';
+import 'package:task/features/data/models/base_response.dart';
+import 'package:task/features/data/models/filter_response_model.dart';
 
 part 'filter_companies_response.g.dart';
 

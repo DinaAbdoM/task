@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:task/core/error/failures.dart';
-import 'package:task/core/models/cities_response.dart';
-import 'package:task/core/models/subcategories_response.dart';
-import 'package:task/core/models/filter_companies_request_model.dart';
+import 'package:task/features/data/models/cities_response.dart';
+import 'package:task/features/data/models/subcategories_response.dart';
+import 'package:task/features/data/models/filter_companies_request_model.dart';
 import 'package:task/core/networking/api_error_handler.dart';
 import 'package:task/core/networking/api_service.dart';
 import 'package:task/features/domain/entities/filter_companies_entity.dart';

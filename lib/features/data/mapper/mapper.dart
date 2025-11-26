@@ -1,7 +1,7 @@
-import 'package:task/core/models/company_model.dart';
-import 'package:task/core/models/filter_response_model.dart';
-import 'package:task/core/models/pagination_model.dart';
-import 'package:task/core/models/sub_category_model.dart';
+import 'package:task/features/data/models/company_model.dart';
+import 'package:task/features/data/models/filter_response_model.dart';
+import 'package:task/features/data/models/pagination_model.dart';
+import 'package:task/features/data/models/sub_category_model.dart';
 import 'package:task/features/domain/entities/company_entity.dart';
 import 'package:task/features/domain/entities/filter_companies_entity.dart';
 import 'package:task/features/domain/entities/pagination_entity.dart';

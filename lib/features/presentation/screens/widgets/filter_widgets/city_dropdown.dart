@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:task/core/models/city_model.dart';
+import 'package:task/features/data/models/city_model.dart';
 import 'package:task/core/theming/app_text_styles.dart';
 import 'package:task/core/theming/colors.dart';
 

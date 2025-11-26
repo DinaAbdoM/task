@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:task/core/models/sub_category_model.dart';
+import 'package:task/features/data/models/sub_category_model.dart';
 
 class FilterCompaniesRequest {
   int? page;
