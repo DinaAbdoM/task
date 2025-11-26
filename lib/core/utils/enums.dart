@@ -1,0 +1,3 @@
+enum ProviderType { person, office }
+
+

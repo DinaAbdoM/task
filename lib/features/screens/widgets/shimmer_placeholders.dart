@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/helpers/spacing.dart';
-import 'package:task/features/screens/widgets/constants.dart';
+import 'package:task/core/theming/constants.dart';
 // بما أن `itemsPerPage` ثابت, قمنا بنقله هنا أو يمكنك تركه في الملف الأصلي 
 // إذا كان يستخدم في أكثر من مكان. سأفترض ثابتاً محلياً هنا للاستقلال.
 const int itemsPerPage = 6; 

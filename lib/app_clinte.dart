@@ -4,8 +4,7 @@ import 'package:task/core/routing/app_router.dart';
 import 'package:task/core/routing/routes.dart';
 
 class MyApp extends StatelessWidget {
-  final AppRouter appRouter;
-  const MyApp({super.key, required AppRouter appRouter}) : appRouter = appRouter;
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        onGenerateRoute: appRouter.onGenerateRoute,
+        onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: Routes.homeView,
         builder: (context, child) {
           return Directionality(

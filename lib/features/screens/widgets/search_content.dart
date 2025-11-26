@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/features/domain/entities/company_entity.dart';
-import 'package:task/features/screens/widgets/constants.dart';
+import 'package:task/core/theming/constants.dart';
 import 'package:task/features/screens/widgets/property_card_widgets/property_card.dart';
 import 'package:task/features/screens/widgets/shimmer_placeholders.dart';
 

@@ -1,12 +1,10 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/features/presentation/companies/companies_cubit.dart';
 import 'package:task/features/presentation/companies/companies_state.dart';
 import 'package:task/features/screens/no_results_screen.dart';
-import 'package:task/features/screens/widgets/constants.dart';
+import 'package:task/core/theming/constants.dart';
 import 'package:task/features/screens/widgets/search_app_bar.dart';
 import 'package:task/features/screens/widgets/search_content.dart';
 
@@ -68,7 +66,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
   void _performSearch() {
     // final query = searchController.text.toLowerCase();
-
     // if (query.isEmpty) {
     //   _filteredProperties = mockProperties;
     // } else if (query.contains('لايوجد')) {
@@ -79,7 +76,6 @@ class _SearchScreenState extends State<SearchScreen> {
     //         property.subtitle.toLowerCase().contains(query);
     //   }).toList();
     // }
-
     // setState(() {
     //   _isSearching = query.isNotEmpty;
     //   _currentMaxItems = _filteredProperties.length > itemsPerPage
@@ -115,25 +111,23 @@ class _SearchScreenState extends State<SearchScreen> {
                   if (state is FilterCompaniesLoading) {
                     return const Center(child: CircularProgressIndicator());
                   }
-                  Widget scrollableContent;
                   if (_isSearching || state is! FilterCompaniesSuccess) {
                     if (state is FilterCompaniesError) {
                       return Center(child: Text((state).error));
                     }
-                    scrollableContent = NoResultsScreen(
-                      searchController: searchController,
-                    );
-                  } else {
-                    _currentMaxItems = (state).filterEntity.companies.length;
-                    scrollableContent = SearchContent(
-                      isListView: isMenuOpen,
-                      isLoadingMore: _isLoadingMore,
-                      currentMaxItems: _currentMaxItems,
-                      filteredProperties: (state).filterEntity.companies,
-                    );
                   }
 
-                  return scrollableContent;
+                  state = state as FilterCompaniesSuccess;
+                  _currentMaxItems = (state).filterEntity.companies.length;
+                  if (_currentMaxItems == 0) {
+                    return NoResultsScreen(searchController: searchController);
+                  }
+                  return SearchContent(
+                    isListView: isMenuOpen,
+                    isLoadingMore: _isLoadingMore,
+                    currentMaxItems: _currentMaxItems,
+                    filteredProperties: (state).filterEntity.companies,
+                  );
                 },
               ),
             ),

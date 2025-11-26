@@ -5,6 +5,7 @@ import 'package:task/features/presentation/companies/companies_cubit.dart';
 import 'package:task/features/domain/repositories/filter_repository.dart';
 import 'package:task/features/data/repo/filter_repository_impl.dart';
 import 'package:task/features/domain/usecases/filter_companies_usecase.dart';
+import 'package:task/features/presentation/filter/filter_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -26,39 +27,8 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<CompaniesCubit>(
     () => CompaniesCubit(getIt<FilterCompaniesUseCase>()),
   );
+  getIt.registerFactory<FilterCubit>(
+    () => FilterCubit(getIt<CompanyRepository>()),
+  );
 
-  // ---------------------------------------
-  // 2. طبقة Repository (Data Layer)
-  // ---------------------------------------
-  //   getIt.registerLazySingleton<FilterRepository>(
-  //     () => FilterRepositoryImpl(getIt<ApiService>()),
-  //   );
-
-  //   // ---------------------------------------
-  //   // 3. طبقة Use Cases (Domain Layer)
-  //   // ---------------------------------------
-  //   getIt.registerLazySingleton<GetCitiesUseCase>(
-  //     () => GetCitiesUseCase(getIt<FilterRepository>()),
-  //   );
-  //   // 🔑 تم الإضافة: تسجيل GetSubCategoriesUseCase
-  //   getIt.registerLazySingleton<GetSubCategoriesUseCase>(
-  //     () => GetSubCategoriesUseCase(getIt<FilterRepository>()),
-  //   );
-  //   getIt.registerLazySingleton<FilterCompaniesUseCase>(
-  //     () => FilterCompaniesUseCase(getIt<FilterRepository>()),
-  //   );
-
-  //   // ---------------------------------------
-  //   // 4. طبقة Cubits/Blocs (Presentation Layer)
-  //   // ---------------------------------------
-  //   getIt.registerFactory<LookupsCubit>(
-  //     () => LookupsCubit(
-  //       getIt<GetCitiesUseCase>(),
-  //       getIt<GetSubCategoriesUseCase>(),
-  //     ),
-  //   );
-  //   getIt.registerFactory<FilterCubit>(
-  //     () => FilterCubit(getIt<FilterCompaniesUseCase>()),
-  //   );
-  // }
 }

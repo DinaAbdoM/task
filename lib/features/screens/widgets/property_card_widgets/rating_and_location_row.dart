@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
-import 'package:task/features/screens/widgets/constants.dart';
+import 'package:task/core/theming/constants.dart';
 
 class RatingAndLocationRow extends StatelessWidget {
   final double rating;

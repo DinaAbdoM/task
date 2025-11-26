@@ -4,7 +4,6 @@ import 'package:task/core/models/cities_response.dart';
 import 'package:task/core/models/subcategories_response.dart';
 import 'package:task/core/models/filter_companies_request_model.dart';
 import 'package:task/core/networking/api_error_handler.dart';
-import 'package:task/core/networking/api_error_model.dart';
 import 'package:task/core/networking/api_service.dart';
 import 'package:task/features/domain/entities/filter_companies_entity.dart';
 import 'package:task/features/domain/repositories/filter_repository.dart';
@@ -51,4 +50,5 @@ class CompanyRepositoryImpl implements CompanyRepository {
       return Left(ErrorHandler.handle(e).failure);
     }
   }
+
 }

@@ -1,4 +1,4 @@
-class CompanyEntity {
+class CompanyEntity  {
   final int id;
   final String name;
   final String type;

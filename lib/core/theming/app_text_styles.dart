@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/theming/colors.dart';
 import 'package:task/core/theming/font_weight_helper.dart';
-import 'package:task/features/screens/widgets/constants.dart';
+import 'package:task/core/theming/constants.dart';
 
 class AppTextStyles {
   static TextStyle font20bold = TextStyle(
@@ -38,6 +38,12 @@ class AppTextStyles {
     color: kDarkGrey,
     fontWeight: FontWeight.bold,
     fontSize: 20.sp,
+    fontFamily: 'Cairo',
+  );
+  static TextStyle font14kWhite = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 14.sp,
     fontFamily: 'Cairo',
   );
   static TextStyle font16kWhite = TextStyle(

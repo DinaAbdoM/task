@@ -1,23 +1,18 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'dart:convert';
+import 'dart:developer';
 
-part 'filter_companies_request_model.g.dart';
+import 'package:task/core/models/sub_category_model.dart';
 
-@JsonSerializable(createFactory: false)
 class FilterCompaniesRequest {
-  @JsonKey(name: "page")
-  final int? page;
+  int? page;
 
-  @JsonKey(name: "search")
-  final String? search;
+  String? search;
 
-  @JsonKey(name: "city_id")
-  final int? cityId;
+  int? cityId;
 
-  @JsonKey(name: "type")
-  final String? type;
+  String? type;
 
-  @JsonKey(name: "sub_categories")
-  final List<int>? subCategories;
+  List<SubCategoryModel>? subCategories;
 
   FilterCompaniesRequest({
     this.page,
@@ -27,6 +22,20 @@ class FilterCompaniesRequest {
     this.subCategories,
   });
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
 
-  Map<String, dynamic> toJson() => _$FilterCompaniesRequestToJson(this);
+    if (page != null) data['page'] = page;
+    if (search != null) data['search'] = search;
+    if (cityId != null) data['city_id'] = cityId;
+    if (type != null) data['type'] = type;
+
+    if (subCategories != null && subCategories!.isNotEmpty) {
+      data['sub_categories'] = jsonEncode(
+        subCategories!.map((e) => e.toJson()).toList(),
+      );
+    }
+
+    return data;
+  }
 }

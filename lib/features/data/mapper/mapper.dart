@@ -1,9 +1,11 @@
 import 'package:task/core/models/company_model.dart';
 import 'package:task/core/models/filter_response_model.dart';
 import 'package:task/core/models/pagination_model.dart';
+import 'package:task/core/models/sub_category_model.dart';
 import 'package:task/features/domain/entities/company_entity.dart';
 import 'package:task/features/domain/entities/filter_companies_entity.dart';
 import 'package:task/features/domain/entities/pagination_entity.dart';
+import 'package:task/features/domain/entities/sub_category_entity.dart';
 
 
 extension FilterMapper on FilterDataModel{
@@ -41,6 +43,15 @@ extension PaginationMapper on PaginationModel {
       currentPage: currentPage ?? 1,
       lastPage: lastPage ?? 1,
       totalItems: totalItems ?? 0,
+    );
+  }
+}
+extension SubCategoryMapper on SubCategoryModel {
+  SubCategoryEntity toEntity() {
+    return SubCategoryEntity(
+      id: id,
+      name: name,
+      img: img,
     );
   }
 }

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:task/core/di/dependency_injection.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
 import 'package:task/features/presentation/companies/companies_cubit.dart';
-import 'package:task/features/presentation/cubits/filter_cubit.dart';
-import 'package:task/features/screens/widgets/constants.dart';
+import 'package:task/features/presentation/filter/filter_cubit.dart';
+import 'package:task/core/theming/constants.dart';
 import 'package:task/features/screens/widgets/filter_widgets/filter_bottom_sheet.dart';
 
 class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -86,7 +87,8 @@ class _SearchAppBarState extends State<SearchAppBar> {
 
           GestureDetector(
             onTap: () {
-              final filterCubit = context.read<FilterCubit>();
+              // final filterCubit = context.read<FilterCubit>();
+              final cubit = context.read<CompaniesCubit>();
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
@@ -97,12 +99,21 @@ class _SearchAppBarState extends State<SearchAppBar> {
                   ),
                 ),
                 builder: (BuildContext context) {
-                  // return const FilterBottomSheet();
-                  return BlocProvider.value(
-                    value: filterCubit, // 👈 نفس الـ cubit اللي فوق
+                  return MultiBlocProvider(
+                    providers: [
+                      BlocProvider.value(value: cubit),
+                      BlocProvider(
+                        create: (_) => getIt<FilterCubit>()..loadFilters(),
+                      ),
+                    ],
                     child: const FilterBottomSheet(),
                   );
-                  ;
+
+                  //   // return const FilterBottomSheet();
+                  //   return BlocProvider.value(
+                  //     value: filterCubit,
+                  //     child: const FilterBottomSheet(),
+                  //   );
                 },
               ).then((filterResults) {
                 if (filterResults != null) {

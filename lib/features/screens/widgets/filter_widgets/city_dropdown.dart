@@ -23,12 +23,14 @@ class CityDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isSelectedValueInList = cities.any((city) => city.id == selectedCityId);
+    final int? valueToShow = isSelectedValueInList ? selectedCityId : null;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),
         borderRadius: BorderRadius.circular(10.r),
-      ),
+      color: Colors.white,),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<int>(
           value: selectedCityId,
@@ -42,7 +44,8 @@ class CityDropdown extends StatelessWidget {
             Icons.keyboard_arrow_down,
             color: AppColors.kTextGrey,
           ),
-          items: cities.map((city) {
+         items: cities.isEmpty 
+              ? []: cities.map((city) {
             return DropdownMenuItem<int>(
               value: city.id,
               child: Text(city.name, textDirection: TextDirection.rtl),

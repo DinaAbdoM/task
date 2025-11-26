@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:task/core/models/cities_response.dart';
-import 'package:task/core/models/filter_companies_request_model.dart';
 import 'package:task/core/models/filter_companies_response.dart';
 import 'package:task/core/models/subcategories_response.dart';
 import 'package:task/core/networking/api_constants.dart';
@@ -22,6 +19,6 @@ abstract class ApiService {
   @POST(ApiConstants.filterCompanies)
   @MultiPart()
   Future<FilterCompaniesResponse> filterCompanies(
-    @PartMap() Map<String, dynamic> filter,
+    @Part() Map<String, dynamic> filter,
   );
 }

@@ -82,7 +82,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = FormData.fromMap(filter);
     final _options = _setStreamType<FilterCompaniesResponse>(
       Options(
             method: 'POST',

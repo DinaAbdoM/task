@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/helpers/spacing.dart';
@@ -13,11 +12,7 @@ class FilterHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        _buildDragHandle(),
-        verticalSpace(12.h),
-        _buildHeaderRow(),
-      ],
+      children: [_buildDragHandle(), verticalSpace(7.h), _buildHeaderRow()],
     );
   }
 
@@ -27,7 +22,7 @@ class FilterHeader extends StatelessWidget {
         height: 5.h,
         width: 50.w,
         decoration: BoxDecoration(
-          color:AppColors. kDarkGrey,
+          color: AppColors.kDarkGrey,
           borderRadius: BorderRadius.circular(10.r),
         ),
       ),
@@ -44,7 +39,7 @@ class FilterHeader extends StatelessWidget {
           child: Text(
             'مسح الكل',
             style: AppTextStyles.font18errorRed.copyWith(
-              color:AppColors. kErrorRed,
+              color: AppColors.kErrorRed,
             ),
           ),
         ),

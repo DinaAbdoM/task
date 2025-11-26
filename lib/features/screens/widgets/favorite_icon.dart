@@ -3,12 +3,12 @@
   import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/theming/colors.dart';
-import 'package:task/features/screens/widgets/constants.dart';
+import 'package:task/core/theming/constants.dart';
 
 class FavoriteIcon extends StatelessWidget {
   final bool isFavorite;
   final VoidCallback onTap;
-  const FavoriteIcon({
+  const FavoriteIcon({super.key, 
     required this.isFavorite,
     required this.onTap,
   });
