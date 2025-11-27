@@ -2,59 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/theming/colors.dart';
 import 'package:task/core/theming/font_weight_helper.dart';
-import 'package:task/core/theming/constants.dart';
 
 class AppTextStyles {
   static TextStyle font20bold = TextStyle(
     fontSize: 20.sp,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeightHelper.bold,
     fontFamily: 'Cairo',
   );
   static TextStyle font14GreyRegular = TextStyle(
     fontSize: 14.sp,
-    fontWeight: FontWeight.normal,
-    color: Colors.grey,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.grey,
     fontFamily: 'Cairo',
   );
   static TextStyle font12GreyRegular = TextStyle(
     fontSize: 12.sp,
-    fontWeight: FontWeight.normal,
-    color: Colors.grey,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.black.withOpacity(0.6),
     fontFamily: 'Cairo',
   );
   static TextStyle font20BlackBold = TextStyle(
     fontSize: 20.sp,
-    fontWeight: FontWeight.bold,
-    color: Colors.black,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.black,
     fontFamily: 'Cairo',
   );
   static TextStyle font18kDarkGrey = TextStyle(
-    color: kDarkGrey,
-    fontWeight: FontWeight.bold,
+    color: AppColors.kDarkGrey,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 18.sp,
     fontFamily: 'Cairo',
   );
   static TextStyle font20kDarkGrey = TextStyle(
-    color: kDarkGrey,
-    fontWeight: FontWeight.bold,
+    color: AppColors.kDarkGrey,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 20.sp,
     fontFamily: 'Cairo',
   );
   static TextStyle font14kWhite = TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
+    color: AppColors.white,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 14.sp,
     fontFamily: 'Cairo',
   );
   static TextStyle font16kWhite = TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
+    color: AppColors.white,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 16.sp,
     fontFamily: 'Cairo',
   );
   static TextStyle font16kblack = TextStyle(
-    color: Colors.black,
-    fontWeight: FontWeight.bold,
+    color: AppColors.black,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 16.sp,
     fontFamily: 'Cairo',
   );
@@ -65,15 +64,15 @@ class AppTextStyles {
     fontFamily: 'Cairo',
   );
   static TextStyle font16kDarkGrey = TextStyle(
-    color: kDarkGrey,
-    fontWeight: FontWeight.bold,
+    color: AppColors.kDarkGrey,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 16.sp,
     fontFamily: 'Cairo',
   );
 
   static TextStyle font14kTextGrey = TextStyle(
     fontSize: 14.sp,
-    color: kTextGrey,
+    color: AppColors.kTextGrey,
     fontWeight: FontWeightHelper.bold,
     fontFamily: 'Cairo',
   );
@@ -86,7 +85,7 @@ class AppTextStyles {
   );
 
   static TextStyle font12bold = TextStyle(
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 12.sp,
     color: AppColors.black,
     fontFamily: 'Cairo',
@@ -94,14 +93,14 @@ class AppTextStyles {
 
   static TextStyle font10kTextGrey = TextStyle(
     fontSize: 10.sp,
-    color: kTextGrey,
+    color: AppColors.kTextGrey,
     fontWeight: FontWeightHelper.bold,
     fontFamily: 'Cairo',
   );
 
   static TextStyle font16kWhitebold = TextStyle(
     color: AppColors.white,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeightHelper.bold,
     fontSize: 16.sp,
     fontFamily: 'Cairo',
   );

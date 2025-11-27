@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
+import 'package:task/core/theming/colors.dart';
 import 'package:task/features/domain/entities/company_entity.dart';
-import 'package:task/core/theming/constants.dart';
 import 'package:task/features/presentation/screens/widgets/favorite_icon.dart';
 import 'package:task/features/presentation/screens/widgets/property_card_widgets/property_image.dart';
 
@@ -39,64 +39,6 @@ class _PropertyCardState extends State<PropertyCard> {
         : _buildGridView(context);
   }
 
-  // Widget _buildGridView(BuildContext context) {
-  //   return AspectRatio(
-  //     aspectRatio: 1 / 1.5,
-  //     child: Container(
-  //       decoration: BoxDecoration(
-  //         borderRadius: BorderRadius.circular(kCardRadius),
-  //       ),
-  //       child: Column(
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children: [
-  //           AspectRatio(
-  //             aspectRatio: 16 / 9,
-  //             child: PropertyImage(
-  //               imageUrl: widget.property.imageUrl,
-  //               width: double.infinity,
-  //               height: 100.h,
-  //               borderRadius: kCardRadius,
-  //             ),
-  //           ),
-  //           Expanded(
-  //             child: Padding(
-  //               padding: const EdgeInsets.all(8.0),
-  //               child: Column(
-  //                 crossAxisAlignment: CrossAxisAlignment.start,
-  //                 children: [
-  //                   Row(
-  //                     children: [
-  //                       Text(
-  //                         widget.property.title,
-  //                         style: AppTextStyles.font12bold,
-  //                         textDirection: TextDirection.rtl,
-  //                       ),
-  //                       const Spacer(),
-  //                       FavoriteIcon(
-  //                         isFavorite: _isFavorite,
-  //                         onTap: _toggleFavorite,
-  //                       ),
-  //                     ],
-  //                   ),
-  //                   verticalSpace(2.h),
-
-  //                   Text(
-  //                     widget.property.description,
-  //                     style: AppTextStyles.font12GreyRegular,
-  //                     maxLines: 3,
-  //                     overflow: TextOverflow.ellipsis,
-  //                     textDirection: TextDirection.rtl,
-  //                   ),
-  //                 ],
-  //               ),
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
   Widget _buildGridView(BuildContext context) {
     return AspectRatio(
       aspectRatio: 1 / 1.5,
@@ -125,10 +67,7 @@ class _PropertyCardState extends State<PropertyCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildTitleAndFavoriteRow(),
-
                     verticalSpace(2.h),
-
-                    // الوصف
                     Text(
                       widget.entity.desc,
                       style: AppTextStyles.font12GreyRegular,

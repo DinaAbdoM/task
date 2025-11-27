@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
-import 'package:task/core/theming/constants.dart';
+import 'package:task/core/theming/colors.dart';
 
 class RatingAndLocationRow extends StatelessWidget {
   final double rating;
   final String subtitle;
-  const RatingAndLocationRow({super.key, 
+  const RatingAndLocationRow({
+    super.key,
     required this.rating,
     required this.subtitle,
   });
@@ -35,7 +36,7 @@ class RatingAndLocationRow extends StatelessWidget {
       children: [
         _buildRatingStars(rating),
         horizontalSpace(15.w),
-        Icon(Icons.location_on, color: kTextGrey, size: 16.w),
+        Icon(Icons.location_on, color:AppColors. kTextGrey, size: 16.w),
         horizontalSpace(4.w),
         Expanded(
           child: Text(
@@ -43,7 +44,8 @@ class RatingAndLocationRow extends StatelessWidget {
             style: AppTextStyles.font10kTextGrey,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            textDirection: TextDirection.rtl, // أضفت اتجاه النص ليتناسب مع بقية العناصر
+            textDirection:
+                TextDirection.rtl
           ),
         ),
       ],

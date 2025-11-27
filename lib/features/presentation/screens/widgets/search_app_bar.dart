@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task/core/di/dependency_injection.dart';
 import 'package:task/core/helpers/spacing.dart';
 import 'package:task/core/theming/app_text_styles.dart';
+import 'package:task/core/theming/colors.dart';
 import 'package:task/features/presentation/cubits/companies/companies_cubit.dart';
 import 'package:task/features/presentation/cubits/filter/filter_cubit.dart';
-import 'package:task/core/theming/constants.dart';
 import 'package:task/features/presentation/screens/widgets/filter_widgets/filter_bottom_sheet.dart';
 
 class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -46,7 +45,6 @@ class _SearchAppBarState extends State<SearchAppBar> {
     );
   }
 
-  // 1. شريط التطبيق العلوي
   Widget _buildCustomAppBar(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -61,13 +59,16 @@ class _SearchAppBarState extends State<SearchAppBar> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('الشركات و الافراد', style: AppTextStyles.font16kDarkGrey),
+            Text(
+              'الشركات و الافراد',
+              style: AppTextStyles.font16kDarkGrey,
+            ),
             IconButton(
               onPressed: () => widget.onToggleView(),
               icon: Icon(
                 widget.isListView ? Icons.grid_view_outlined : Icons.menu,
                 size: 25.w,
-                color: kTextGrey,
+                color:AppColors. kTextGrey,
               ),
             ),
           ],
@@ -76,7 +77,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
     );
   }
 
-  // 2. شريط البحث الكامل (Input + Filter Button)
+  //    (Input + Filter Button)
   Widget _buildSearchBar(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -87,8 +88,8 @@ class _SearchAppBarState extends State<SearchAppBar> {
 
           GestureDetector(
             onTap: () {
-              // final filterCubit = context.read<FilterCubit>();
               final cubit = context.read<CompaniesCubit>();
+              final filterCubit = context.read<FilterCubit>();
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
@@ -98,22 +99,18 @@ class _SearchAppBarState extends State<SearchAppBar> {
                     topRight: Radius.circular(20.r),
                   ),
                 ),
-                builder: (BuildContext context) {
+                builder: (bottomSheetContext) {
+                  // builder: (BuildContext context) {
                   return MultiBlocProvider(
                     providers: [
                       BlocProvider.value(value: cubit),
-                      BlocProvider(
-                        create: (_) => getIt<FilterCubit>()..loadFilters(),
-                      ),
+                      BlocProvider.value(value: filterCubit),
+                      // BlocProvider(
+                      //   create: (_) => getIt<FilterCubit>()..loadFilters(),
+                      // ),
                     ],
                     child: const FilterBottomSheet(),
                   );
-
-                  //   // return const FilterBottomSheet();
-                  //   return BlocProvider.value(
-                  //     value: filterCubit,
-                  //     child: const FilterBottomSheet(),
-                  //   );
                 },
               ).then((filterResults) {
                 if (filterResults != null) {
@@ -132,12 +129,11 @@ class _SearchAppBarState extends State<SearchAppBar> {
     );
   }
 
-  // دالة حقل الإدخال النقي
   Widget _buildSearchTextField() {
     return Container(
       height: 45.h,
       decoration: BoxDecoration(
-        color: kLightGrey,
+        color:AppColors. kLightGrey,
         borderRadius: BorderRadius.circular(25.r),
       ),
       child: TextField(
@@ -146,11 +142,11 @@ class _SearchAppBarState extends State<SearchAppBar> {
             context.read<CompaniesCubit>().filterCompanies(query: query),
         decoration: InputDecoration(
           hintText: 'ابحث عن شركة أو فرد',
-          hintStyle: const TextStyle(color: kTextGrey, fontSize: 14),
+          hintStyle: const TextStyle(color:AppColors. kTextGrey, fontSize: 14),
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: EdgeInsets.only(left: 8.w, right: 12.w),
-            child: Icon(Icons.search, color: kTextGrey, size: 25.w),
+            child: Icon(Icons.search, color:AppColors. kTextGrey, size: 25.w),
           ),
           prefixIconConstraints: const BoxConstraints(
             minWidth: 0,

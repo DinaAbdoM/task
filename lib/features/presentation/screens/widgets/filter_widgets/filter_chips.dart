@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/theming/app_text_styles.dart';
 import 'package:task/core/theming/colors.dart';
-import 'package:task/core/theming/constants.dart'; // استيراد الثوابت
 
 class CustomFilterChip extends StatelessWidget {
   final String label;
@@ -26,12 +25,12 @@ class CustomFilterChip extends StatelessWidget {
       selectedColor: AppColors.kPrimaryColor.withOpacity(0.2),
       backgroundColor: Colors.white,
       side: BorderSide(
-        color: isSelected ? kDarkGrey : Colors.grey.shade300,
+        color: isSelected ? AppColors.kDarkGrey : Colors.grey.shade300,
         width: 1,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
       labelStyle: AppTextStyles.font14kTextGrey.copyWith(
-        color: kDarkGrey,
+        color: AppColors.kDarkGrey,
         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
       ),
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),

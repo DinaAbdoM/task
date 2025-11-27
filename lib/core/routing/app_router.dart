@@ -3,24 +3,37 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task/core/di/dependency_injection.dart';
 import 'package:task/core/routing/routes.dart';
 import 'package:task/features/presentation/cubits/companies/companies_cubit.dart';
-import 'package:task/features/presentation/screens/home_view.dart';
+import 'package:task/features/presentation/cubits/filter/filter_cubit.dart';
+import 'package:task/features/presentation/screens/search_screen.dart';
 
 abstract class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.homeView:
+        // return MaterialPageRoute(
+        //   builder: (_) => BlocProvider(
+        //     create: (context) =>
+        //         getIt<CompaniesCubit>()..filterCompanies(),
+        //     child: SearchScreen(),
+        //   ),
+        // );return MultiBlocProvider(
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) =>
-                getIt<CompaniesCubit>()..filterCompanies(),
-            child: SearchScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<CompaniesCubit>()..filterCompanies(),
+              ),
+              BlocProvider(create: (_) => getIt<FilterCubit>()..loadFilters()),
+            ],
+            child: const SearchScreen(),
           ),
         );
-      case Routes.filterview:
+
       default:
         return MaterialPageRoute(
-          builder: (_) =>
-              const Scaffold(body: Center(child: Text('مسار غير معروف'))),
+          builder: (_) => Scaffold(
+            body: Center(child: Text('No route defined for ${settings.name}')),
+          ),
         );
     }
   }

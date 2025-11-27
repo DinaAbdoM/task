@@ -8,5 +8,5 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupGetIt();
   Bloc.observer = MyBlocObserver();
-  runApp(MyApp());
+  runApp(Task());
 }

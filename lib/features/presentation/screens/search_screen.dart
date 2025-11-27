@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:task/core/theming/colors.dart';
 import 'package:task/features/presentation/cubits/companies/companies_cubit.dart';
 import 'package:task/features/presentation/cubits/companies/companies_state.dart';
 import 'package:task/features/presentation/screens/no_results_screen.dart';
-import 'package:task/core/theming/constants.dart';
 import 'package:task/features/presentation/screens/widgets/search_app_bar.dart';
 import 'package:task/features/presentation/screens/widgets/search_content.dart';
+import 'package:task/features/presentation/screens/widgets/shimmer_placeholders.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -21,7 +23,7 @@ class _SearchScreenState extends State<SearchScreen> {
   final ScrollController _scrollController = ScrollController();
   static const int itemsPerPage = 6;
   int _currentMaxItems = 0;
-  final bool _isLoadingMore = false;
+  final bool _isLoading = false;
   final bool _isSearching = false;
 
   @override
@@ -42,7 +44,7 @@ class _SearchScreenState extends State<SearchScreen> {
   void _scrollListener() {
     //   if (_scrollController.offset >=
     //           _scrollController.position.maxScrollExtent * 0.8 &&
-    //       !_isLoadingMore &&
+    //       !_isLoading &&
     //       _currentMaxItems < _filteredProperties.length) {
     //     _loadMoreItems();
     //   }
@@ -50,7 +52,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   void loadMoreItems() {
     // setState(() {
-    //   _isLoadingMore = true;
+    //   _isLoading = true;
     // });
 
     // // Future.delayed(const Duration(milliseconds: 1000), () {
@@ -59,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
     // //     if (_currentMaxItems > _filteredProperties.length) {
     // //       _currentMaxItems = _filteredProperties.length;
     // //     }
-    // //     _isLoadingMore = false;
+    // //     _isLoading = false;
     // //   });
     // // });
   }
@@ -109,7 +111,16 @@ class _SearchScreenState extends State<SearchScreen> {
               child: BlocBuilder<CompaniesCubit, CompaniesState>(
                 builder: (context, state) {
                   if (state is FilterCompaniesLoading) {
-                    return const Center(child: CircularProgressIndicator());
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: Shimmer.fromColors(
+                        baseColor: AppColors.lightGrey.withOpacity(0.1),
+                        highlightColor: AppColors.lightGrey.withOpacity(0.3),
+                        child: isMenuOpen
+                            ? const ShimmerListPlaceholder()
+                            : const ShimmerGridPlaceholder(),
+                      ),
+                    );
                   }
                   if (_isSearching || state is! FilterCompaniesSuccess) {
                     if (state is FilterCompaniesError) {
@@ -124,7 +135,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   }
                   return SearchContent(
                     isListView: isMenuOpen,
-                    isLoadingMore: _isLoadingMore,
+                    isLoading: _isLoading,
                     currentMaxItems: _currentMaxItems,
                     filteredProperties: (state).filterEntity.companies,
                   );

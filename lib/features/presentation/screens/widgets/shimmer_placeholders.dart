@@ -1,12 +1,9 @@
-// features/screens/search/widgets/shimmer_placeholders.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/helpers/spacing.dart';
-import 'package:task/core/theming/constants.dart';
-// بما أن `itemsPerPage` ثابت, قمنا بنقله هنا أو يمكنك تركه في الملف الأصلي 
-// إذا كان يستخدم في أكثر من مكان. سأفترض ثابتاً محلياً هنا للاستقلال.
-const int itemsPerPage = 6; 
+import 'package:task/core/theming/colors.dart';
+
+const int itemsPerPage = 6;
 
 class ShimmerGridPlaceholder extends StatelessWidget {
   const ShimmerGridPlaceholder({super.key});
@@ -61,7 +58,7 @@ class _ShimmerItemPlaceholder extends StatelessWidget {
           height: 100.h,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.darkGrey.withOpacity(0.1),
             borderRadius: BorderRadius.circular(kCardRadius.r),
           ),
         ),

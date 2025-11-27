@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/routing/app_router.dart';
 import 'package:task/core/routing/routes.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Task extends StatelessWidget {
+  const Task({super.key});
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

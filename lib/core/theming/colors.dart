@@ -17,6 +17,7 @@ class AppColors {
   static const Color errorRed = Color(0xFFD32F2F);
   static const Color warningOrange = Color(0xFFFF9800);
   static const Color kPrimaryColor = Color(0xFF6A994E);
+  static const Color kLightGrey = Color(0xFFF0F0F0);
   static const Color successGreen = Color(0xFF4CAF50);
 
   static const Color starYellow = Color(0xFFFFB800);
@@ -30,3 +31,7 @@ class AppColors {
   static const Color kTextGrey = Color(0xFF757575);
   static const Color kErrorRed = Color(0xFFB71C1C);
 }
+
+// الأبعاد
+const double kPadding = 16.0;
+const double kCardRadius = 4.0;

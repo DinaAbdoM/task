@@ -2,53 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:task/core/helpers/spacing.dart';
+import 'package:task/core/theming/colors.dart';
 import 'package:task/features/domain/entities/company_entity.dart';
-import 'package:task/core/theming/constants.dart';
 import 'package:task/features/presentation/screens/widgets/property_card_widgets/property_card.dart';
 import 'package:task/features/presentation/screens/widgets/shimmer_placeholders.dart';
 
 class SearchContent extends StatelessWidget {
   final bool isListView;
-  final bool isLoadingMore;
+  final bool isLoading;
   final int currentMaxItems;
   final List<CompanyEntity> filteredProperties;
 
   const SearchContent({
     super.key,
     required this.isListView,
-    required this.isLoadingMore,
+    required this.isLoading,
     required this.currentMaxItems,
     required this.filteredProperties,
   });
-
   @override
   Widget build(BuildContext context) {
-    Widget currentView = isListView
-        ? _buildListView(context)
-        : _buildGridView(context);
-
-    Widget currentShimmer = isListView
-        ? const ShimmerListPlaceholder()
-        : const ShimmerGridPlaceholder();
-
+    if (isLoading) {
+      return Shimmer.fromColors(
+        baseColor: AppColors.darkGrey.withOpacity(0.1),
+        highlightColor: AppColors.darkGrey.withOpacity(0.3),
+        child: isListView
+            ? const ShimmerListPlaceholder()
+            : const ShimmerGridPlaceholder(),
+      );
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        currentView,
-        if (isLoadingMore)
-          Padding(
-            padding: EdgeInsets.only(top: 20.h),
-            child: Shimmer.fromColors(
-              baseColor: Colors.grey.shade300,
-              highlightColor: Colors.grey.shade100,
-              child: currentShimmer,
-            ),
-          ),
+        isListView ? _buildListView(context) : _buildGridView(context),
         verticalSpace(20.h),
       ],
     );
   }
-
   Widget _buildGridView(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
